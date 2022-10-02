@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Control from "./lib/control.svelte";
   import Map from "./lib/map.svelte";
   import Preview from "./lib/preview.svelte";
   import Search from "./lib/search.svelte";
@@ -33,8 +34,9 @@
 </script>
 
 <main>
-  <Search />
   <Map city={cityValue} {data} geo={filteredGeo} filter={filterValue} />
+  <Search />
+  <Control />
   {#if currentValue !== null}
     <Preview current={currentValue} />
   {/if}

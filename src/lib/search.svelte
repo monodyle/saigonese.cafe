@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { emitter } from "../event";
-
-  import Pin from "../icon/pin.svelte";
   import { filter } from "../store";
 
   let timer: NodeJS.Timeout;
@@ -19,41 +16,26 @@
     on:keyup={({ currentTarget: { value } }) => debounce(value)}
     placeholder="Search for place..."
   />
-  <button on:click={() => emitter.emit("track")}>
-    <Pin />
-  </button>
 </div>
 
 <style scoped>
   .container {
-    display: flex;
-    gap: 16px;
-    padding: 0 16px;
-    align-items: center;
-    height: 48px;
-    background-color: var(--color-neutral-50);
+    position: absolute;
+    top: 24px;
+    left: 24px;
   }
   input {
-    padding: 4px;
     display: block;
-    flex: 1;
-    background-color: transparent;
-    border: 0 none;
-    border-radius: 4px;
+    width: 256px;
+    padding: 8px 12px;
+    background-color: var(--color-neutral-50);
+    border-radius: 8px;
+    border: 1px solid var(--color-neutral-300);
+    background-color: var(--color-neutral-50);
+    box-shadow: var(--shadow-4);
   }
   input:focus,
   input:focus-visible {
-    outline: 0 none;
-  }
-  button {
-    background: transparent;
-    border: 0 none;
-    padding: 4px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: var(--color-neutral-700);
-  }
-  button:hover {
-    background-color: var(--color-neutral-200);
+    outline: 2px solid var(--color-neutral-300);
   }
 </style>
