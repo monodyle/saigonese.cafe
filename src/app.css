@@ -82,3 +82,14 @@ body {
 .mapboxgl-ctrl-group .mapboxgl-ctrl-geolocate {
   display: none;
 }
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+  opacity: 0.2;
+  transition: opacity 0.2s ease;
+}
+
+.mapboxgl-ctrl-bottom-left:hover,
+.mapboxgl-ctrl-bottom-right:hover {
+  opacity: 1;
+}
