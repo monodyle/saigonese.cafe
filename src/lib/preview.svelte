@@ -100,4 +100,11 @@
     align-items: center;
     gap: 2px;
   }
+
+  @media (max-width: 641px) {
+    .container {
+      width: calc(100vw - 48px);
+      bottom: 24px;
+    }
+  }
 </style>

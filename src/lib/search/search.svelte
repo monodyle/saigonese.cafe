@@ -144,4 +144,22 @@
     outline: 2px solid var(--color-indigo-500);
     outline-offset: 1px;
   }
+
+  @media (max-width: 641px) {
+    .container {
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-neutral-50);
+    }
+    input,
+    select {
+      border: 0 none;
+      box-shadow: unset;
+    }
+    .focus:focus,
+    .focus:focus-visible {
+      outline: 0 none;
+    }
+  }
 </style>
