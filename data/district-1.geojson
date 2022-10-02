@@ -21,6 +21,27 @@
           10.794423054705462
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "beMIND Coffee & Juice",
+        "address": "37 Nguyễn Đình Chiểu, P.Đa Kao, Q.1, TP.HCM",
+        "instagram": "",
+        "open_time": "Mon - Sun, 6:30 - 21:30",
+        "wifi_speed": "22 Mbps",
+        "proposed_price": "≥65.000₫",
+        "image": "https://images2.imgbox.com/fe/27/P6GpAX19_o.jpg",
+        "marker-color": "#50C240",
+        "marker-symbol": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69680745591508,
+          10.785404688196982
+        ]
+      }
     }
   ]
 }
