@@ -1,5 +1,5 @@
 declare interface Window {
-  mapboxgl: mapboxgl
-  map: mapboxgl.Map
-  MapboxLanguage: any
+  mapboxgl: mapboxgl;
+  map: mapboxgl.Map;
+  MapboxLanguage: any;
 }
