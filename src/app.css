@@ -68,6 +68,7 @@
 
 body {
   margin: 0;
+  color: var(--color-neutral-800);
   display: flex;
   place-items: center;
   min-height: 100vh;

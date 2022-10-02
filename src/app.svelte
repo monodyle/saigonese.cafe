@@ -2,7 +2,7 @@
   import Control from "./lib/control.svelte";
   import Map from "./lib/map.svelte";
   import Preview from "./lib/preview.svelte";
-  import Search from "./lib/search.svelte";
+  import Search from "./lib/search/search.svelte";
   import { city, current, filter, geo, rawData, type CafeShop } from "./store";
 
   let cityValue: string = "";
