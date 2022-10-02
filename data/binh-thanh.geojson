@@ -26,7 +26,7 @@
       "type": "Feature",
       "properties": {
         "name": "nhien. gì ta",
-        "address": "36/5 Nguyễn Gia Trí, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh 72300, Việt Nam",
+        "address": "36/5 Nguyễn Gia Trí, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh",
         "instagram": "nhiengita",
         "open_time": "Mon - Sun, 17:00 - 00:00",
         "wifi_speed": "25 Mbps",
@@ -38,8 +38,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.7116253,
-          10.8026191
+          106.71611100663738,
+          10.802589159575247
         ]
       }
     }
