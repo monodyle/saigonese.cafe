@@ -150,7 +150,16 @@
       top: 0;
       left: 0;
       right: 0;
+    }
+    .filter {
       background-color: var(--color-neutral-50);
+    }
+    .result {
+      border: 0 none;
+      border-top: 1px solid var(--color-neutral-200);
+      border-radius: 0;
+      margin-top: 0;
+      width: 100%;
     }
     input,
     select {
