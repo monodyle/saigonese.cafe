@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createColorPoint } from "../utils";
   import { onMount } from "svelte";
-  import { current, loc } from "../store";
+  import { shop, loc } from "../store";
   import type mapboxgl from "mapbox-gl";
   import { emitter } from "../event";
 
@@ -113,7 +113,7 @@
       if (!e.features) return;
       const coordinates = e.features[0].geometry["coordinates"].slice();
       const properties = e.features[0].properties;
-      current.set({ coordinates, properties });
+      shop.set({ coordinates, properties });
     });
 
     map.on("click", "clusters", (e) => {

@@ -3,14 +3,7 @@
   import Map from "./lib/map.svelte";
   import Preview from "./lib/preview.svelte";
   import Search from "./lib/search/search.svelte";
-  import {
-    region,
-    current,
-    filter,
-    geo,
-    rawData,
-    type CafeShop,
-  } from "./store";
+  import { region, filter, geo, rawData } from "./store";
 
   let regionValue: string = "";
   let filterValue: string;
@@ -35,21 +28,16 @@
       };
     }
   });
-
-  let currentValue: CafeShop | null = null;
-  current.subscribe((value) => (currentValue = value));
 </script>
 
 <main>
   <Map region={regionValue} {data} geo={filteredGeo} filter={filterValue} />
   <Search />
   <Control />
-  {#if currentValue !== null}
-    <Preview current={currentValue} />
-  {/if}
+  <Preview />
 </main>
 
-<style scoped>
+<style>
   main {
     width: 100vw;
     height: 100vh;

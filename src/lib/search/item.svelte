@@ -1,7 +1,7 @@
 <script lang="ts">
   import { emitter } from "../../event";
 
-  import { current, type CafeShop } from "../../store";
+  import { shop as current, type CafeShop } from "../../store";
   // import { getDistanceFromMe } from "../../utils";
 
   export let shop: CafeShop;
@@ -61,6 +61,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+  .info {
+    flex: 1;
   }
   .name {
     font-size: 14px;

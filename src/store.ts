@@ -38,4 +38,4 @@ export const searchString = writable("");
 
 export const cities = Object.entries(raw);
 
-export const current = writable<CafeShop | null>(null);
+export const shop = writable<CafeShop | null>(null);
