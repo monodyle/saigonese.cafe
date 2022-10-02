@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "process:data": "node ./scripts/process.mjs",
-    "dev": "yarn process:data && vite",
-    "build": "vite build",
+    "dev": "node ./scripts/process.mjs && vite",
+    "build": "node ./scripts/process.mjs && vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
