@@ -21,6 +21,48 @@
                     10.787868659193846
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Caramew cafe",
+                "address": "108/26A Trần Quang Diệu, Phường 14, Quận 3, Thành phố Hồ Chí Minh",
+                "instagram": "caramewcafe",
+                "open_time": "Mon - Sun, 7:00 - 21:30",
+                "wifi_speed": "25 Mbps",
+                "proposed_price": "45.000₫",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipPmySpR5TKgJp15macDwJMVXq7mbMPlmKA9TgNm=w408-h545-k-no",
+                "marker-color": "#50C240",
+                "marker-symbol": "cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.6800176,
+                    10.7906085
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Seat Cafe",
+                "address": "491/2 Lê Văn Sỹ, Phường 12, Quận 3, Thành phố Hồ Chí Minh",
+                "instagram": "theseatcafe",
+                "open_time": "Mon - Sun, 8:00 - 22:30",
+                "wifi_speed": "25 Mbps",
+                "proposed_price": "32.000₫",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipPmySpR5TKgJp15macDwJMVXq7mbMPlmKA9TgNm=w408-h545-k-no",
+                "marker-color": "#50C240",
+                "marker-symbol": "cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.6737597,
+                    10.7900836
+                ]
+            }
         }
     ]
 }
