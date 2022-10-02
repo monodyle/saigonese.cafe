@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Nowhere Cafe",
-                "address": "339/2c Lê Văn Sỹ, Phường 14, Quận 3, Thành phố Hồ Chí Minh, Việt Nam",
+                "address": "339/2c Lê Văn Sỹ, Phường 14, Quận 3, Thành phố Hồ Chí Minh",
                 "instagram": "nowherecafe.official",
                 "open_time": "Mon - Sun, 7:00 - 22:00",
                 "wifi_speed": "25 Mbps",
@@ -17,8 +17,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    106.6749153,
-                    10.787872
+                    106.67710597863223,
+                    10.787868659193846
                 ]
             }
         }
