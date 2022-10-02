@@ -21,6 +21,27 @@
           10.790126033840165
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "nhien. gì ta",
+        "address": "36/5 Nguyễn Gia Trí, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh",
+        "instagram": "nhiengita",
+        "open_time": "Mon - Sun, 17:00 - 00:00",
+        "wifi_speed": "25 Mbps",
+        "proposed_price": "≥40.000₫",
+        "image": "https://lh5.googleusercontent.com/p/AF1QipPfljPdJ62_LsNBH_CtGcoIPcdUQqyPfiT1vata=w408-h544-k-no",
+        "marker-color": "#50C240",
+        "marker-symbol": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71611100663738,
+          10.802589159575247
+        ]
+      }
     }
   ]
 }
