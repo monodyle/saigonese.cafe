@@ -42,7 +42,7 @@
     const center = rawData[regionValue].center;
     emitter.emit("fly-to", {
       center,
-      zoom: 13,
+      zoom: 14,
       speed: 1.5,
     });
   };
