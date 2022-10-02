@@ -259,6 +259,11 @@ earcut@^2.2.4:
   resolved "https://registry.yarnpkg.com/earcut/-/earcut-2.2.4.tgz#6d02fd4d68160c114825d06890a92ecaae60343a"
   integrity sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==
 
+emitt@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/emitt/-/emitt-1.3.4.tgz#9c30de80a87b5627b3ecfa87976f3cb2e930d237"
+  integrity sha512-rf4CotHf6j9w6S4g/99+EGosCIv1zZHmd6UJFzE4cguIF3sXiG/PZ7M3TImLK8cd+GdrHVZ6UYqfXu9iogKPTQ==
+
 es6-promise@^3.1.2:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"

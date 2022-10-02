@@ -1,7 +1,9 @@
 <script lang="ts">
   import { createColorPoint } from "../utils";
   import { onMount } from "svelte";
-  import { current } from "../store";
+  import { current, loc } from "../store";
+  import type mapboxgl from "mapbox-gl";
+  import { emitter } from "../event";
 
   export let city: string;
   export let filter: string;
@@ -13,6 +15,7 @@
 
   let mapContainer: HTMLDivElement;
   let map: mapboxgl.Map;
+  let geoControl: mapboxgl.GeolocateControl;
 
   const SCALE = 10;
 
@@ -132,13 +135,29 @@
       );
     });
 
-    map.on('mouseenter', 'layer', () => {
-      map.getCanvas().style.cursor = 'pointer'
-    })
+    map.on("mouseenter", "layer", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
 
-    map.on('mouseleave', 'layer', () => {
-      map.getCanvas().style.cursor = ''
-    })
+    map.on("mouseleave", "layer", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+    geoControl = new window.mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+    });
+
+    map.addControl(geoControl);
+
+    emitter.on("track", () => geoControl.trigger());
+    emitter.on("fly-to", (data: any) => map.flyTo(data));
+
+    geoControl.on("geolocate", (e: any) => {
+      loc.set([e.coords.longitude, e.coords.latitude]);
+    });
   });
 </script>
 
@@ -156,6 +175,6 @@
   .map {
     height: 100%;
     width: 100%;
-    inset: 0;
+    /* inset: 0; */
   }
 </style>

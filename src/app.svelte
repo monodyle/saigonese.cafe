@@ -1,6 +1,7 @@
 <script lang="ts">
   import Map from "./lib/map.svelte";
-    import Preview from "./lib/preview.svelte";
+  import Preview from "./lib/preview.svelte";
+  import Search from "./lib/search.svelte";
   import { city, current, filter, geo, rawData, type CafeShop } from "./store";
 
   let cityValue: string = "";
@@ -14,7 +15,7 @@
   });
 
   filter.subscribe((value) => {
-    filterValue = value
+    filterValue = value;
     if (value === "all") {
       filteredGeo = geo;
     } else {
@@ -28,10 +29,11 @@
   });
 
   let currentValue: CafeShop | null = null;
-  current.subscribe((value) => currentValue = value)
+  current.subscribe((value) => (currentValue = value));
 </script>
 
 <main>
+  <Search />
   <Map city={cityValue} {data} geo={filteredGeo} filter={filterValue} />
   {#if currentValue !== null}
     <Preview current={currentValue} />
@@ -42,5 +44,7 @@
   main {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 </style>

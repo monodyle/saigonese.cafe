@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CafeShop } from "src/store";
+  import type { CafeShop } from "../store";
 
   export let current: CafeShop;
 </script>
@@ -17,17 +17,16 @@
 
 <style scoped>
   .container {
-    --shadow-color: 0 0% 45%;
-    --shadow-strength: 1%;
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    padding: 8px;
-    padding-right: 16px;
+    padding: 12px;
     position: absolute;
-    bottom: 24px;
+    top: 64px;
     left: 24px;
-    background-color: #fafafa;
-    border-radius: 8px;
+    background-color: var(--color-neutral-50);
+    border-radius: 12px;
+    border: 1px solid var(--color-neutral-400);
     box-shadow: 0 -1px 2px 0 hsl(var(--shadow-color) /
             calc(var(--shadow-strength) + 2%)),
       0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)),
@@ -40,8 +39,8 @@
             calc(var(--shadow-strength) + 7%));
   }
   .cover {
-    width: 72px;
-    height: 72px;
+    width: 100%;
+    height: 128px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -54,11 +53,12 @@
     object-fit: cover;
   }
   .name {
-    color: #404040;
+    color: var(--color-neutral-600);
     font-weight: 600;
   }
-  .address, .open_time {
-    color: #737373;
+  .address,
+  .open_time {
+    color: var(--color-neutral-500);
     font-size: 12px;
     line-height: 16px;
   }
