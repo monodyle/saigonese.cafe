@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Banknotes from "../icon/banknotes.svelte";
   import type { CafeShop } from "../store";
 
   export let current: CafeShop;
@@ -10,8 +11,12 @@
   </div>
   <div class="info">
     <div class="name">{current.properties["name"]}</div>
-    <div class="address">{current.properties["address"]}</div>
-    <div class="open_time">{current.properties["open_time"]}</div>
+    <div class="small">{current.properties["address"]}</div>
+    <div class="small">{current.properties["open_time"]}</div>
+    <div class="small price">
+      <Banknotes />
+      {current.properties["proposed_price"]}
+    </div>
   </div>
 </div>
 
@@ -48,10 +53,15 @@
     color: var(--color-neutral-600);
     font-weight: 600;
   }
-  .address,
-  .open_time {
+  .small {
     color: var(--color-neutral-500);
     font-size: 12px;
     line-height: 16px;
+  }
+  .price {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
   }
 </style>

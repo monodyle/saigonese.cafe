@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cà phê muối Ba Mùa",
+        "address": "91 Phạm Viết Chánh, P.19, Q.Bình Thạnh, TP.HCM",
+        "instagram": "ca.phe.muoi",
+        "open_time": "Mon - Sun, 7:00 - 21:00",
+        "wifi_speed": "22 Mbps",
+        "proposed_price": "≥40.000₫",
+        "image": "https://images2.imgbox.com/98/d1/MB89XAwC_o.jpg",
+        "marker-color": "#50C240",
+        "marker-symbol": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.7095566,
+          10.7901205
+        ]
+      }
+    }
+  ]
+}

@@ -21,14 +21,15 @@ export const fuseByName = new Fuse(shops, {
   includeScore: false,
   keys: [["properties", "name"]],
 });
-export const fuseByReferrers = new Fuse(shops, {
-  includeScore: false,
-  keys: [["properties", "referrers"]],
-});
 
-export type Cities = keyof typeof raw;
+export type Regions = keyof typeof rawData;
 
-export const city = writable("district-1");
+export const regions = Object.entries(rawData).map(([key, value]) => ({
+  key,
+  name: value.name,
+}));
+
+export const region = writable<Regions>("district-1");
 export const filter = writable("all");
 export const loc = writable<[number, number] | null>(null);
 export const about = writable(false);

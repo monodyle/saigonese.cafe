@@ -20,7 +20,7 @@
     current.set(shop);
     emitter.emit("fly-to", {
       center: [shop.coordinates[0], shop.coordinates[1]],
-      zoom: 14,
+      zoom: 17,
       speed: 1.5,
     });
   };

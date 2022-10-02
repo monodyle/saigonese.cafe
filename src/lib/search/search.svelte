@@ -1,10 +1,21 @@
 <script lang="ts">
-  import { filter, fuseByName } from "../../store";
+  import {
+    filter,
+    fuseByName,
+    rawData,
+    region,
+    regions,
+    type Regions,
+  } from "../../store";
   import hotkeys from "hotkeys-js";
   import Item from "./item.svelte";
+  import { emitter } from "../../event";
 
   let input: HTMLInputElement = null;
   let search = "";
+  let regionValue: Regions = "district-1";
+
+  region.subscribe((v) => (regionValue = v));
   $: result = fuseByName.search(search);
 
   hotkeys("ctrl+k, command+k", (e) => {
@@ -24,12 +35,25 @@
       filter.set(value);
     }, 600);
   };
+
+  const handleChangeRegion = () => {
+    console.log(regionValue);
+    region.set(regionValue);
+    const center = rawData[regionValue].center;
+    emitter.emit("fly-to", {
+      center,
+      zoom: 13,
+      speed: 1.5,
+    });
+  };
 </script>
 
 <div class="container">
   <div class="filter">
-    <select>
-      <option value="district-1">District 1</option>
+    <select bind:value={regionValue} on:change={handleChangeRegion}>
+      {#each regions as region}
+        <option value={region.key}>{region.name}</option>
+      {/each}
     </select>
     <input
       type="text"

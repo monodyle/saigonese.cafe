@@ -5,7 +5,7 @@
   import type mapboxgl from "mapbox-gl";
   import { emitter } from "../event";
 
-  export let city: string;
+  export let region: string;
   export let filter: string;
   export let geo: any;
   export let data: any;
@@ -20,7 +20,7 @@
   const SCALE = 10;
 
   const updateMap = () => {
-    if (last !== city) {
+    if (last !== region) {
       map.flyTo({
         center: data.center,
         zoom: SCALE,
@@ -87,7 +87,7 @@
       });
     }
 
-    last = city;
+    last = region;
     lastFilter = filter;
   };
 

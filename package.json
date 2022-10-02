@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "process:data": "node ./scripts/process.mjs",
+    "dev": "yarn process:data && vite",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
@@ -14,6 +15,7 @@
     "@tsconfig/svelte": "3.0.0",
     "@types/mapbox": "1.6.42",
     "@types/mapbox-gl": "2.7.6",
+    "fast-glob": "3.2.12",
     "svelte": "3.49.0",
     "svelte-check": "2.8.1",
     "svelte-preprocess": "4.10.7",

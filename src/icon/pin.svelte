@@ -17,7 +17,7 @@
   />
 </svg>
 
-<style>
+<style scoped>
   svg {
     width: 16px;
     height: 16px;
