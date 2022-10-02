@@ -4,12 +4,15 @@
 
 ## Features
 
-- [x] Shop detail
-- [ ] Instant searching
-- [ ] Show distance from user location to shops
-- [ ] Direct open in map apps
-- [ ] Filter
-- [ ] Sync data
+- Shop detail
+- Instant searching
+- Filter
+
+## Upcoming...
+
+- Show distance from user location to shops
+- Direct open in map apps
+- Sync data
 
 ## License
 
