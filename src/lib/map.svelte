@@ -144,9 +144,7 @@
     });
 
     geoControl = new window.mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true,
-      },
+      positionOptions: { enableHighAccuracy: true },
       trackUserLocation: true,
     });
 

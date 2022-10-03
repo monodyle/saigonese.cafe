@@ -6,18 +6,24 @@
     region,
     regions,
     type Regions,
+    fuseByNameWithRegion,
   } from "../../store";
   import hotkeys from "hotkeys-js";
   import Item from "./item.svelte";
   import { emitter } from "../../event";
   import Time from "../../icon/time.svelte";
+  import { region_map } from "../../config";
 
   let input: HTMLInputElement = null;
   let search = "";
-  let regionValue: Regions = "district-1";
+  let regionValue: Regions = "sai-gon";
 
   region.subscribe((v) => (regionValue = v));
   $: result = fuseByName.search(search);
+  $: resultByRegion =
+    regionValue === "sai-gon"
+      ? result
+      : fuseByNameWithRegion(regionValue).search(search);
 
   hotkeys("ctrl+k, command+k", (e) => {
     e.preventDefault();
@@ -38,7 +44,6 @@
   };
 
   const handleChangeRegion = () => {
-    console.log(regionValue);
     region.set(regionValue);
     const center = rawData[regionValue].center;
     emitter.emit("fly-to", {
@@ -57,7 +62,7 @@
       on:change={handleChangeRegion}
     >
       {#each regions as region}
-        <option value={region.key}>{region.name}</option>
+        <option value={region.key}>{region_map[region.key].name}</option>
       {/each}
     </select>
     <input
@@ -75,9 +80,9 @@
       </button>
     {/if}
   </div>
-  {#if result.length}
+  {#if resultByRegion.length}
     <div class="result">
-      {#each result as value}
+      {#each resultByRegion as value}
         <Item shop={value.item} />
       {/each}
     </div>
