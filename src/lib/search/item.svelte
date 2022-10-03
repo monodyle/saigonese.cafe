@@ -1,20 +1,17 @@
 <script lang="ts">
   import { emitter } from "../../event";
 
-  import { shop as current, type CafeShop } from "../../store";
-  // import { getDistanceFromMe } from "../../utils";
+  import { loc, shop as current, type CafeShop } from "../../store";
+  import { getDistanceFromMe } from "../../utils";
 
   export let shop: CafeShop;
-  // let my_coor: [number, number] = null;
-  // loc.subscribe((v) => (my_coor = v));
+  let myLoc: [number, number] = null;
+  loc.subscribe((v) => (myLoc = v));
 
   const image = shop.properties["image"];
   const name = shop.properties["name"];
   const address = shop.properties["address"];
-  // const distance = getDistanceFromMe(value.coordinates, my_coor);
-
-  // let coors = value.coordinates.join(",");
-  // let rev_coors = value.coordinates.slice().reverse().join(",");
+  const distance = getDistanceFromMe(shop.coordinates, myLoc);
 
   const handleClick = () => {
     current.set(shop);
@@ -32,7 +29,7 @@
   </div>
   <div class="info">
     <div class="name">{name}</div>
-    <div class="address">{address}</div>
+    <div class="address">{address}{distance && "・" + distance}</div>
   </div>
 </div>
 

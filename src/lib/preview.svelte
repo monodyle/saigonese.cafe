@@ -3,16 +3,25 @@
 
   import Banknotes from "../icon/banknotes.svelte";
   import Time from "../icon/time.svelte";
-  import { shop, type CafeShop } from "../store";
+  import { loc, shop, type CafeShop } from "../store";
+  import { getDistanceFromMe } from "../utils";
 
   let shopValue: CafeShop | null = null;
   shop.subscribe((value) => (shopValue = value));
+
+  let myLoc: [number, number] = null;
+  loc.subscribe((v) => (myLoc = v));
 
   $: image = shopValue?.properties["image"];
   $: name = shopValue?.properties["name"];
   $: address = shopValue?.properties["address"];
   $: open_time = shopValue?.properties["open_time"];
   $: proposed_price = shopValue?.properties["proposed_price"];
+
+  $: myLocAsStr = myLoc?.slice().reverse().join(",");
+  $: shopLocAsStr = shopValue?.coordinates.slice().reverse().join(",");
+  $: mapLink = `https://www.google.com/maps/dir/?api=1&origin=${myLocAsStr}&destination=${shopLocAsStr}`;
+  $: distance = getDistanceFromMe(shopValue?.coordinates || [0, 0], myLoc);
 
   const clearShop = () => shop.set(null);
   hotkeys("esc", clearShop);
@@ -26,7 +35,15 @@
     </div>
     <div class="info">
       <div class="name">{name}</div>
-      <div class="small address">{address}</div>
+      <div class="small address">
+        {address}
+        {#if distance}
+          <span class="distance">
+            {`・${distance} `}
+            <a class="link" href={mapLink} target="_blank">Direction</a>
+          </span>
+        {/if}
+      </div>
       <div class="small">{open_time}</div>
       <div class="small price">
         <Banknotes />
@@ -100,11 +117,21 @@
     align-items: center;
     gap: 2px;
   }
+  .distance {
+    font-weight: 500;
+  }
+  .link {
+    text-decoration: none;
+    color: var(--color-indigo-500);
+  }
 
   @media (max-width: 641px) {
     .container {
       width: calc(100vw - 48px);
       bottom: 24px;
+    }
+    .address {
+      max-inline-size: unset;
     }
   }
 </style>

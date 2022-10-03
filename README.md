@@ -15,12 +15,8 @@ Hope it is useful to you. Feel free to contribute data for the project by open p
 - Shop detail
 - Instant searching
 - Filter
-
-## Upcoming...
-
-- Show distance from user location to shops
+- Distance from user location to shops
 - Direct open in map apps
-- Sync data
 
 ## License
 
