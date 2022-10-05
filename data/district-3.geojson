@@ -12,7 +12,7 @@
         "proposed_price": "≥35.000₫",
         "image": "https://images2.imgbox.com/de/3a/rX1oXFkg_o.jpg",
         "marker-color": "#50C240",
-        "marker-symbol": "cafe"
+        "marker-symbol": "cafe-shop"
       },
       "geometry": {
         "type": "Point",
@@ -33,7 +33,7 @@
         "proposed_price": "45.000₫",
         "image": "https://images2.imgbox.com/89/f5/mDJXDilL_o.jpg",
         "marker-color": "#50C240",
-        "marker-symbol": "cafe"
+        "marker-symbol": "cafe-shop"
       },
       "geometry": {
         "type": "Point",
@@ -54,7 +54,7 @@
         "proposed_price": "32.000₫",
         "image": "https://images2.imgbox.com/36/2a/JrsZrTR9_o.jpg",
         "marker-color": "#50C240",
-        "marker-symbol": "cafe"
+        "marker-symbol": "cafe-shop"
       },
       "geometry": {
         "type": "Point",

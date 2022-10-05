@@ -70,16 +70,16 @@
         type: "symbol",
         source: "source",
         layout: {
-          "icon-image": ["get", "marker-color"],
-          "icon-size": 0.25,
-          "text-field": ["get", "shortname"],
+          "icon-image": ["get", "marker-symbol"],
+          "icon-size": 1.2,
+          "text-field": ["get", "name"],
           "text-size": 12,
-          "text-offset": [0, 0.5],
+          "text-offset": [0, 0.75],
           "text-anchor": "top",
           "icon-allow-overlap": true,
         },
         paint: {
-          "text-color": "#7e6c56",
+          "text-color": "#5a5249",
           "text-halo-color": "#fff",
           "text-halo-width": 1,
           "text-halo-blur": 0,
@@ -102,9 +102,8 @@
 
     let marker = document.createElement("img");
     marker.setAttribute("src", "/favicon.svg");
-    marker.style.transform = "scale(2)";
     map.on("load", () => {
-      map.addImage("#50C240", marker, { pixelRatio: 0.4 });
+      map.addImage("cafe-shop", marker);
       // map.addImage("#F3AE1A", createColorPoint(255, 193, 7, 255));
       // map.addImage("#C24740", createColorPoint(194, 71, 64, 255));
       // map.addImage("#BEBEBE", createColorPoint(125, 125, 125, 255));
