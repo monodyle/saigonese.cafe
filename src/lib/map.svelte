@@ -100,11 +100,14 @@
 
     map.addControl(new window.MapboxLanguage({ defaultLanguage: "en" }));
 
+    let marker = document.createElement("img");
+    marker.setAttribute("src", "/favicon.svg");
+    marker.style.transform = "scale(2)";
     map.on("load", () => {
-      map.addImage("#50C240", createColorPoint(144, 184, 123, 255));
-      map.addImage("#F3AE1A", createColorPoint(255, 193, 7, 255));
-      map.addImage("#C24740", createColorPoint(194, 71, 64, 255));
-      map.addImage("#BEBEBE", createColorPoint(125, 125, 125, 255));
+      map.addImage("#50C240", marker, { pixelRatio: 0.4 });
+      // map.addImage("#F3AE1A", createColorPoint(255, 193, 7, 255));
+      // map.addImage("#C24740", createColorPoint(194, 71, 64, 255));
+      // map.addImage("#BEBEBE", createColorPoint(125, 125, 125, 255));
 
       updateMap();
     });
