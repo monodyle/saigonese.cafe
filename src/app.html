@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
+	<script src="https://cdn.jsdelivr.net/npm/mapbox-gl@1.11.1/dist/mapbox-gl.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-language@0.10.1/index.min.js"></script>
+	%sveltekit.head%
+
+	<script type="text/javascript">
+		window.mapboxgl.accessToken =
+			"pk.eyJ1IjoibW9ub2R5bGUiLCJhIjoiY2w4cTY3bGdpMGNxZjN3cHI2ZHUzdXg3ZCJ9.KoA-Sg5maiWEuh4suYgjWg";
+	</script>
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
+</html>
