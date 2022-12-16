@@ -1,38 +1,23 @@
-# create-svelte
+<p align="center">
+  <img src="./static/github-header.png" />
+  <br />
+  Try it now ☕ <a href="https://saigonese.cafe/">saigonese.cafe</a>
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## About
 
-## Creating a project
+Coffee@Saigon is an open-source project that provides a solution for conveniently finding a cafe for the weekend or a space to work in weekday.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Hope it is useful to you. Feel free to contribute data for the project by open pull request or [open an issue](https://github.com/monodyle/saigon-coffee/issues/new?assignees=&labels=request-coffee-shop&template=request-coffee-shop.md&title=%5BRequest+Coffee+Shop%5D).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Shop detail
+- Instant searching
+- Filter
+- Distance from user location to shops
+- Direct open in map apps
 
-## Developing
+## License
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+MIT - Monody Le 2022
