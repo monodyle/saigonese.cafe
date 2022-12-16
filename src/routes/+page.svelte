@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Control from '$lib/control/Control.svelte';
+	import Map from '$lib/map/Map.svelte';
+	import Preview from '$lib/map/Preview.svelte';
 	import { filter, geo, rawData, region } from '$lib/stores';
-
-	import Map from './Map.svelte';
-	import Preview from './Preview.svelte';
+	import Info from './Info.svelte';
 
 	let regionValue: string = '';
 	let filterValue: string;
@@ -39,6 +39,7 @@
 	<Map region={regionValue} {data} geo={filteredGeo} filter={filterValue} />
 	<Preview />
 	<Control />
+	<Info />
 </section>
 
 <style>

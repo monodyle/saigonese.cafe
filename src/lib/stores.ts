@@ -60,3 +60,5 @@ export const searchString = writable('');
 export const cities = Object.entries(raw);
 
 export const shop = writable<CafeShop | null>(null);
+
+export const appInfo = writable<boolean>(false);

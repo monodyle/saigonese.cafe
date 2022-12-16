@@ -20,13 +20,8 @@
 	let lastFilter = '';
 
 	const updateMap = () => {
-		if (last !== region) {
-			map.flyTo({
-				center: data.center,
-				zoom: SCALE,
-				speed: 2
-			});
-		}
+		if (last !== region) map.flyTo({ center: data.center, zoom: SCALE, speed: 2 });
+
 		if (lastFilter !== filter) {
 			if (map.getLayer('layer')) map.removeLayer('layer');
 			if (map.getLayer('clusters')) map.removeLayer('clusters');
@@ -116,11 +111,7 @@
 			if (!e.features) return;
 			const coordinates = (e.features[0].geometry as any)['coordinates'].slice();
 			const properties = e.features[0].properties as any;
-			map.flyTo({
-				center: coordinates,
-				zoom: 16,
-				speed: 1
-			});
+			map.flyTo({ center: coordinates, zoom: 16, speed: 1 });
 			shop.set({ coordinates, properties });
 		});
 
@@ -168,6 +159,7 @@
 
 <style scoped>
 	.map {
+		position: relative;
 		flex: 1;
 	}
 </style>

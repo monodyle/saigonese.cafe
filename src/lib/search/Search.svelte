@@ -3,6 +3,7 @@
 	import SearchIcon from '$lib/icons/search.svelte';
 	import ClearIcon from '$lib/icons/clear.svelte';
 	import {
+		appInfo,
 		fuseByName,
 		fuseByNameWithRegion,
 		rawData,
@@ -16,6 +17,7 @@
 	import ChevronDown from '$lib/icons/chevron-down.svelte';
 	import { onMount } from 'svelte';
 	import Item from './Item.svelte';
+	import InfoIcon from '$lib/icons/info.svelte';
 
 	let input: HTMLInputElement;
 	let filter: HTMLButtonElement;
@@ -78,6 +80,11 @@
 			{/each}
 		</div>
 	{/if}
+	<div class="info">
+		<button on:click={() => appInfo.set(true)}>
+			<InfoIcon />
+		</button>
+	</div>
 	<button class="filter" on:click={toggleRegionSelection} bind:this={filter}>
 		<span class="label">{region_map[regionValue].name}</span>
 		<div class="chevron"><ChevronDown /></div>
@@ -140,6 +147,21 @@
 		padding: 24px 24px 0;
 	}
 
+	.info {
+		display: flex;
+		align-items: center;
+		border-right: 1px solid var(--color-border);
+		gap: 12px;
+		padding: 16px 32px;
+	}
+	.info > button {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		background-color: transparent;
+		border: 0 none;
+	}
+
 	.filter {
 		background-color: var(--color-white);
 		border: 0 none;
@@ -164,14 +186,6 @@
 
 	.filter .chevron {
 		opacity: 0.5;
-		width: 24px;
-		height: 24px;
-		border: 1px solid var(--color-dimmed);
-		background-color: var(--color-border);
-		border-radius: 4px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
 	.region-list {
