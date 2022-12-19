@@ -1,4 +1,5 @@
 <script lang="ts">
+	import hotkeys from 'hotkeys-js';
 	import { region_map } from '$lib/config';
 	import SearchIcon from '$lib/icons/search.svelte';
 	import ClearIcon from '$lib/icons/clear.svelte';
@@ -36,10 +37,7 @@
 	let timer: NodeJS.Timeout;
 	const debounce = (value: string) => {
 		clearTimeout(timer);
-		timer = setTimeout(() => {
-			search = value;
-			searchString.set(value);
-		}, 600);
+		timer = setTimeout(() => searchString.set(value), 600);
 	};
 
 	const handleChangeRegion = (regionValue: Regions) => {
@@ -49,10 +47,19 @@
 		emitter.emit('fly-to', { center, zoom: 14, speed: 1.5 });
 	};
 
+	const handleKeyDown = (e: KeyboardEvent) => {
+		if (e.key === 'Escape') input.blur();
+	};
+
 	onMount(() => {
 		document.onclick = (e) => {
 			if (e.target !== filter) selectingRegion = false;
 		};
+
+		hotkeys('ctrl+k,command+k', (e) => {
+			e.preventDefault();
+			input.focus();
+		});
 	});
 </script>
 
@@ -61,25 +68,26 @@
 		<SearchIcon />
 		<input
 			type="text"
-			placeholder="Search for Coffee..."
+			placeholder="Tìm một quán Cafe..."
 			class="input"
 			bind:value={search}
 			bind:this={input}
 			on:keyup={({ currentTarget: { value } }) => debounce(value)}
+			on:keydown={handleKeyDown}
 		/>
+		{#if resultByRegion.length}
+			<div class="search-result">
+				{#each resultByRegion as { item }}
+					<Item shop={item} />
+				{/each}
+			</div>
+		{/if}
 		{#if search.length}
-			<button class="clear" on:click={() => (search = '')}>
+			<button class="clear" on:click={() => searchString.set('')}>
 				<ClearIcon />
 			</button>
 		{/if}
 	</div>
-	{#if resultByRegion.length}
-		<div class="search-result">
-			{#each resultByRegion as { item }}
-				<Item shop={item} />
-			{/each}
-		</div>
-	{/if}
 	<div class="info">
 		<button on:click={() => appInfo.set(true)}>
 			<InfoIcon />
@@ -139,11 +147,12 @@
 	}
 
 	.search-result {
-		background: var(--color-white);
-		width: 100vw;
 		position: absolute;
 		top: 67px;
 		left: 0;
+		z-index: 1;
+		background: var(--color-white);
+		width: 100vw;
 		padding: 24px 24px 0;
 	}
 

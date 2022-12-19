@@ -45,7 +45,7 @@ export const fuseByName = new Fuse(shops, {
 });
 
 export const fuseByNameWithRegion = (region: Regions) =>
-	new Fuse(shopsByRegion(region), {
+	new Fuse<CafeShop>(shopsByRegion(region), {
 		includeScore: false,
 		keys: [['properties', 'name']]
 	});
