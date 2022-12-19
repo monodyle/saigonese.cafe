@@ -203,6 +203,7 @@
 		background: var(--color-white);
 		width: 240px;
 		position: absolute;
+		z-index: 1;
 		top: 67px;
 		right: 0;
 		padding: 12px 12px 0;
