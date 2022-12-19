@@ -10,7 +10,7 @@
 
 Saigonese Coffee is an open-source project that provides a solution for conveniently finding a cafe for the weekend or a space to work in weekday.
 
-Hope it is useful to you. Feel free to contribute for the project by open pull request or [open an issue](https://github.com/monodyle/saigon-coffee/issues/new).
+Hope it is useful to you. Feel free to contribute for the project by open pull request or [open an issue](https://github.com/monodyle/saigonese.cafe/issues/new).
 
 You can contribute coffee shop data at [awesome-saigon-coffee](https://github.com/monodyle/awesome-saigon-coffee/)
 

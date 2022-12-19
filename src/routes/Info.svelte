@@ -38,9 +38,9 @@
 					class="link"
 					target="_blank"
 					rel="noreferrer"
-					href="https://github.com/monodyle/saigon-coffee"
+					href="https://github.com/monodyle/saigonese.cafe"
 				>
-					saigon-coffee
+					monodyle/saigonese.cafe
 				</a>
 			</div>
 		</div>
