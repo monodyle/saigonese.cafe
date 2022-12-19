@@ -40,8 +40,8 @@
 				source: 'source',
 				filter: ['has', 'point_count'],
 				paint: {
-					'circle-color': '#d3cdc0',
-					'circle-stroke-color': '#a59a83',
+					'circle-color': '#747474',
+					'circle-stroke-color': '#282828',
 					'circle-stroke-width': 1,
 					'circle-radius': 10
 				}
@@ -56,9 +56,7 @@
 					'text-size': 12,
 					'text-allow-overlap': true
 				},
-				paint: {
-					'text-color': 'white'
-				}
+				paint: { 'text-color': '#ffffff' }
 			});
 			map.addLayer({
 				id: 'layer',
@@ -74,8 +72,8 @@
 					'icon-allow-overlap': true
 				},
 				paint: {
-					'text-color': '#5a5249',
-					'text-halo-color': '#fff',
+					'text-color': '#282828',
+					'text-halo-color': '#ffffff',
 					'text-halo-width': 1,
 					'text-halo-blur': 0
 				}
@@ -89,7 +87,7 @@
 	onMount(() => {
 		window.map = map = new window.mapboxgl.Map({
 			container: mapContainer,
-			style: 'mapbox://styles/monodyle/cl8q75kgo000515pfvutcf603',
+			style: 'mapbox://styles/monodyle/clbqxrs40000114rpythvltcv',
 			zoom: SCALE
 		});
 
