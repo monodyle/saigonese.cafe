@@ -140,6 +140,8 @@
 		border: 0 none;
 		cursor: pointer;
 		opacity: 0.8;
+		display: flex;
+		align-items: center;
 	}
 
 	.clear:hover {

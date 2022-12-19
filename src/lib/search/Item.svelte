@@ -13,7 +13,7 @@
 	const address = shop.properties['address'];
 	const distance = getDistanceFromMe(shop.coordinates, myLoc);
 
-	const handleClick = () => {
+	const handlePickShop = () => {
 		current.set(shop);
 		searchString.set('');
 		emitter.emit('fly-to', {
@@ -22,9 +22,13 @@
 			speed: 1.5
 		});
 	};
+
+	const handleKeyDown = (e: KeyboardEvent) => {
+		if (e.key === 'Enter') handlePickShop();
+	};
 </script>
 
-<button class="item" on:click={handleClick}>
+<button class="item" on:click={handlePickShop} on:keydown={handleKeyDown}>
 	<div class="preview">
 		<img src={image} alt={name} />
 	</div>
@@ -59,12 +63,14 @@
 		height: 48px;
 		overflow: hidden;
 		border-radius: 2px;
+		background-color: var(--color-border);
 	}
 	.preview img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
+		font-size: 0;
 	}
 
 	.info {
