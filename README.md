@@ -1,14 +1,18 @@
 <p align="center">
-  <img src="./static/github-header.png" />
-  <br />
-  Try it now ☕ <a href="https://saigonese.cafe/">saigonese.cafe</a>
+	<a href="https://saigonese.cafe/">
+		<img src="./static/github-header.png" />
+	</a>
+	<br />
+	<sup>Try it now ☕ <a href="https://saigonese.cafe/">saigonese.cafe</a></sup>
 </p>
 
 ## About
 
-Coffee@Saigon is an open-source project that provides a solution for conveniently finding a cafe for the weekend or a space to work in weekday.
+Saigonese Coffee is an open-source project that provides a solution for conveniently finding a cafe for the weekend or a space to work in weekday.
 
-Hope it is useful to you. Feel free to contribute data for the project by open pull request or [open an issue](https://github.com/monodyle/saigon-coffee/issues/new?assignees=&labels=request-coffee-shop&template=request-coffee-shop.md&title=%5BRequest+Coffee+Shop%5D).
+Hope it is useful to you. Feel free to contribute for the project by open pull request or [open an issue](https://github.com/monodyle/saigon-coffee/issues/new).
+
+You can contribute coffee shop data at [awesome-saigon-coffee](https://github.com/monodyle/awesome-saigon-coffee/)
 
 ## Features
 

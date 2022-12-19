@@ -1,6 +1,7 @@
 {
 	"name": "saigonese-coffee",
 	"version": "0.0.1",
+	"license": "MIT",
 	"scripts": {
 		"process:data": "zx ./scripts/data.mjs",
 		"dev": "vite dev",
