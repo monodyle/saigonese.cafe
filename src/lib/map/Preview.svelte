@@ -1,5 +1,4 @@
 <script lang="ts">
-	import XIcon from '$lib/icons/x.svelte';
 	import { loc, shop, type CafeShop } from '$lib/stores';
 	import { getDistanceFromMe, getExpensive } from '$lib/utils';
 
@@ -27,9 +26,7 @@
 
 {#if shopValue !== null}
 	<div class="container">
-		<button class="close" on:click={clearShop}>
-			<XIcon />
-		</button>
+		<button class="close" on:click={clearShop}> Close </button>
 		<div class="cover">
 			<img src={image} alt={name} />
 		</div>
@@ -44,9 +41,9 @@
 			{/if}
 		</div>
 		<div class="info">
-			<div class="small">{open_time}</div>
+			<div class="small time">{open_time}</div>
 			<div class="small">・</div>
-			<div class="small price">
+			<div class="small price" title={proposed_price}>
 				{new Array(expensive).fill('$').join('')}<span class="dimmed">
 					{new Array(4 - expensive).fill('$').join('')}
 				</span>
@@ -69,18 +66,17 @@
 
 	.close {
 		font-size: 12px;
-		background-color: var(--color-border);
+		color: var(--color-muted);
+		background-color: var(--color-white);
 		border: 0 none;
+		border-bottom: 1px dashed var(--color-border);
 		cursor: pointer;
-		position: absolute;
-		top: -8px;
-		right: -8px;
-		width: 24px;
-		height: 24px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 12px;
+		display: block;
+		text-align: center;
+		width: calc(100% + 32px);
+		margin: -16px -16px 8px;
+		padding: 4px 16px;
+		text-transform: uppercase;
 	}
 
 	.cover {
@@ -107,9 +103,6 @@
 
 	.address {
 		color: var(--color-muted);
-		width: 100%;
-		overflow: hidden;
-		white-space: nowrap;
 		margin-bottom: 2px;
 	}
 
@@ -120,6 +113,10 @@
 
 	.small {
 		font-size: 14px;
+	}
+
+	.time {
+		color: var(--color-muted);
 	}
 
 	.price {
