@@ -72,6 +72,7 @@
 		text-align: center;
 		font-weight: 600;
 		font-size: 24px;
+		margin-top: 0;
 		margin-bottom: 4px;
 	}
 
@@ -79,11 +80,12 @@
 		text-align: center;
 		font-size: 14px;
 		color: var(--color-muted);
-		margin-bottom: 12px;
+		margin-bottom: 16px;
 	}
 
 	.row {
 		color: var(--color-muted);
+		margin-bottom: 4px;
 	}
 	.row .link {
 		color: var(--color-text);
