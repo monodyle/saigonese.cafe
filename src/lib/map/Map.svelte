@@ -96,6 +96,7 @@
 		let marker = document.createElement('img');
 		marker.setAttribute('src', '/favicon.svg');
 		marker.setAttribute('width', '16px');
+		marker.setAttribute('height', '16px');
 		map.on('load', () => {
 			map.addImage('cafe-shop', marker);
 			// map.addImage("#F3AE1A", createColorPoint(255, 193, 7, 255));
