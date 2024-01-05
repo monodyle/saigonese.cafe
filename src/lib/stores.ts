@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js';
 import { writable } from 'svelte/store';
-import { region_map } from './config';
 import raw from '../data.json';
+import { categories_list, region_map } from './config';
 
 export interface CafeShop {
 	coordinates: [number, number];
@@ -16,6 +16,8 @@ export const regions = Object.entries(rawData).map(([key]) => ({
 	key: key as Regions,
 	name: region_map[key].name
 }));
+
+export const categories = Object.freeze(categories_list);
 
 export const geo = Object.freeze({
 	type: 'FeatureCollection',
@@ -51,6 +53,7 @@ export const fuseByNameWithRegion = (region: Regions) =>
 	});
 
 export const region = writable<Regions>('sai-gon');
+export const category = writable('cafe');
 export const filter = writable('all');
 export const loc = writable<[number, number] | null>(null);
 export const about = writable(false);

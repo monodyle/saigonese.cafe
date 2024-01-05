@@ -1,10 +1,12 @@
 <script lang="ts">
-	import hotkeys from 'hotkeys-js';
 	import { region_map } from '$lib/config';
-	import SearchIcon from '$lib/icons/search.svelte';
+	import { emitter } from '$lib/event';
 	import ClearIcon from '$lib/icons/clear.svelte';
+	import SearchIcon from '$lib/icons/search.svelte';
 	import {
 		appInfo,
+		categories,
+		category,
 		fuseByName,
 		fuseByNameWithRegion,
 		rawData,
@@ -13,12 +15,12 @@
 		searchString,
 		type Regions
 	} from '$lib/stores';
-	import { emitter } from '$lib/event';
+	import hotkeys from 'hotkeys-js';
 
 	import ChevronDown from '$lib/icons/chevron-down.svelte';
+	import InfoIcon from '$lib/icons/info.svelte';
 	import { onMount } from 'svelte';
 	import Item from './Item.svelte';
-	import InfoIcon from '$lib/icons/info.svelte';
 
 	let input: HTMLInputElement;
 	let filter: HTMLButtonElement;
@@ -27,12 +29,20 @@
 	let regionValue: Regions = 'sai-gon';
 	region.subscribe((v) => (regionValue = v));
 
+	let categoryValue: string = 'cafe';
+	category.subscribe((v) => (categoryValue = v));
+
 	$: result = fuseByName.search(search);
 	$: resultByRegion =
 		regionValue === 'sai-gon' ? result : fuseByNameWithRegion(regionValue).search(search);
+	$: finalResult = 
+		categoryValue === 'all' ? resultByRegion : resultByRegion.filter((v) => v.item.properties.category === categoryValue);
 
 	let selectingRegion = false;
 	let toggleRegionSelection = () => (selectingRegion = !selectingRegion);
+
+	let selectingCategory = false;
+	let toggleCategorySelection = () => (selectingCategory = !selectingCategory);
 
 	let timer: NodeJS.Timeout;
 	const debounce = (value: string) => {
@@ -45,6 +55,11 @@
 		selectingRegion = false;
 		const center = rawData[regionValue].center;
 		emitter.emit('fly-to', { center, zoom: 14, speed: 1.5 });
+	};
+
+	const handleChangeCategory = (categoryValue: string) => {
+		category.set(categoryValue);
+		selectingCategory = false;
 	};
 
 	const handleKeyDown = (e: KeyboardEvent) => {
@@ -75,9 +90,10 @@
 			on:keyup={({ currentTarget: { value } }) => debounce(value)}
 			on:keydown={handleKeyDown}
 		/>
-		{#if resultByRegion.length}
+		
+		{#if finalResult.length}
 			<div class="search-result">
-				{#each resultByRegion as { item }}
+				{#each finalResult as { item }}
 					<Item shop={item} />
 				{/each}
 			</div>
@@ -88,6 +104,22 @@
 			</button>
 		{/if}
 	</div>
+	<div class="filter-wrapper">
+		<button class="filter" style="width:160px;" on:click={toggleCategorySelection} bind:this={filter}>
+			<span class="label">{categoryValue}</span>
+			<div class="chevron"><ChevronDown /></div>
+		</button>
+		{#if selectingCategory}
+			<div class="category-list">
+				{#each categories as category}
+					<button class="category-option" on:click={() => handleChangeCategory(category)}>
+						{category}
+					</button>
+				{/each}
+			</div>
+		{/if}
+	</div>
+
 	<div class="info">
 		<button on:click={() => appInfo.set(true)}>
 			<InfoIcon />
@@ -199,6 +231,13 @@
 		opacity: 0.5;
 	}
 
+	.filter-wrapper {
+		position: relative;
+		display: inline-block;
+		/* width: 100%; */
+		height: 100%;
+	}
+
 	.region-list {
 		background: var(--color-white);
 		width: 240px;
@@ -220,7 +259,34 @@
 		border: 0 none;
 		text-align: left;
 	}
+
 	.region-option:hover {
+		background-color: var(--color-border);
+		border-radius: 4px;
+	}
+
+	.category-list {
+		background: var(--color-white);
+		width: 100px;
+		position: absolute;
+		z-index: 1;
+		top: 67px;
+		/* padding: 12px 12px 0; */
+	}
+
+	.category-option {
+		cursor: pointer;
+		font-size: 16px;
+		display: block;
+		width: 100%;
+		padding: 8px 16px;
+		margin-bottom: 12px;
+		background-color: var(--color-white);
+		border: 0 none;
+		text-align: left;
+	}
+
+	.category-option:hover {
 		background-color: var(--color-border);
 		border-radius: 4px;
 	}
