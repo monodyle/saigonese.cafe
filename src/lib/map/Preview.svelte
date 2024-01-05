@@ -4,12 +4,13 @@
 
 	let shopValue: CafeShop | null = null;
 	shop.subscribe((value) => (shopValue = value));
-
+	console.log(shopValue)
 	let myLoc: [number, number] | null = null;
 	loc.subscribe((v) => (myLoc = v));
 
 	$: image = shopValue?.properties['image'];
 	$: name = shopValue?.properties['name'];
+	$: category = shopValue?.properties['category'];
 	$: address = shopValue?.properties['address'];
 	$: open_time = shopValue?.properties['open_time'];
 	$: proposed_price = shopValue?.properties['proposed_price'];
@@ -28,9 +29,10 @@
 	<div class="container">
 		<button class="close" on:click={clearShop}> Close </button>
 		<div class="cover">
-			<img src={image} alt={name} />
+			<img src={image} alt={name} id={name}/>
 		</div>
 		<div class="name">{name}</div>
+		<div class="category">{category}</div>
 		<div class="address">
 			{address}
 			{#if distance}
@@ -98,7 +100,12 @@
 	.name {
 		font-size: 24px;
 		font-weight: 600;
-		margin-bottom: 4px;
+	}
+	
+	.category {
+		font-size: 20px;
+		margin-bottom: 6px;
+		font-style: italic;
 	}
 
 	.address {

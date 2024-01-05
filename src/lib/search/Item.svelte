@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { loc, searchString, type CafeShop } from '$lib/stores';
-	import { getDistanceFromMe } from '$lib/utils';
-	import { shop as current } from '$lib/stores';
 	import { emitter } from '$lib/event';
+	import { shop as current, loc, searchString, type CafeShop } from '$lib/stores';
+	import { getDistanceFromMe } from '$lib/utils';
 
 	export let shop: CafeShop;
 	let myLoc: [number, number] | null = null;
@@ -30,7 +29,7 @@
 
 <button class="item" on:click={handlePickShop} on:keydown={handleKeyDown}>
 	<div class="preview">
-		<img src={image} alt={name} />
+		<img src={image} alt={name}/>
 	</div>
 	<div class="info">
 		<div class="name">{name}</div>
