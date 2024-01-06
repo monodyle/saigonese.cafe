@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type mapboxlg from 'mapbox-gl';
+	import { onMount } from 'svelte';
 
 	import { emitter } from '$lib/event';
 	import { loc, shop } from '$lib/stores';
@@ -20,6 +20,7 @@
 	let lastFilter = '';
 
 	const updateMap = () => {
+		console.log('update map');
 		if (last !== region) map.flyTo({ center: data.center, zoom: SCALE, speed: 2 });
 
 		if (lastFilter !== filter) {
@@ -152,6 +153,12 @@
 			loc.set([e.coords.longitude, e.coords.latitude]);
 		});
 	});
+	$: if (map && geo) {
+		console.log('??');
+		if (map.getSource('source')) {
+			(map.getSource('source') as any).setData(geo);
+		}
+	}
 </script>
 
 <div bind:this={mapContainer} class="map" />

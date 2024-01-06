@@ -2,31 +2,35 @@
 	import Control from '$lib/control/Control.svelte';
 	import Map from '$lib/map/Map.svelte';
 	import Preview from '$lib/map/Preview.svelte';
-	import { filter, geo, rawData, region } from '$lib/stores';
+	import { category, geo, geoByRegion, rawData, region } from '$lib/stores';
 	import Info from './Info.svelte';
 
 	let regionValue: string = '';
 	let filterValue: string;
 	let data: any;
-	let filteredGeo: any;
+	let filteredGeo: any = geo;
 
 	region.subscribe((value) => {
 		regionValue = value;
+		filteredGeo = geoByRegion(value);
 		data = rawData[value];
 	});
-
-	filter.subscribe((value) => {
-		filterValue = value;
+	const filterByCategory = (filterValue: string) => {
+		const value = filterValue;
 		if (value === 'all') {
-			filteredGeo = geo;
+			return geo
 		} else {
-			filteredGeo = {
+			return {
 				...geo,
 				features: (geo.features as any[]).filter(
-					(i) => i.properties['marker-color'] === value
+					(i) => i.properties['category'] === value
 				)
 			};
 		}
+	}
+	category.subscribe((value) => {
+		filterValue = value;
+		filteredGeo = filterByCategory(value);
 	});
 </script>
 
