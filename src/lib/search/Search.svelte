@@ -35,8 +35,10 @@
 	$: result = fuseByName.search(search);
 	$: resultByRegion =
 		regionValue === 'sai-gon' ? result : fuseByNameWithRegion(regionValue).search(search);
-	$: finalResult = 
-		categoryValue === 'all' ? resultByRegion : resultByRegion.filter((v) => v.item.properties.category === categoryValue);
+	$: finalResult =
+		categoryValue === 'all'
+			? resultByRegion
+			: resultByRegion.filter((v) => v.item.properties.category === categoryValue);
 
 	let selectingRegion = false;
 	let toggleRegionSelection = () => (selectingRegion = !selectingRegion);
@@ -83,14 +85,14 @@
 		<SearchIcon />
 		<input
 			type="text"
-			placeholder="Tìm một quán Cafe..."
+			placeholder="Tìm một quán ..."
 			class="input"
 			bind:value={search}
 			bind:this={input}
 			on:keyup={({ currentTarget: { value } }) => debounce(value)}
 			on:keydown={handleKeyDown}
 		/>
-		
+
 		{#if finalResult.length}
 			<div class="search-result">
 				{#each finalResult as { item }}
@@ -105,7 +107,12 @@
 		{/if}
 	</div>
 	<div class="filter-wrapper">
-		<button class="filter" style="width:160px;" on:click={toggleCategorySelection} bind:this={filter}>
+		<button
+			class="filter"
+			style="width:160px;margin:0"
+			on:click={toggleCategorySelection}
+			bind:this={filter}
+		>
 			<span class="label">{categoryValue}</span>
 			<div class="chevron"><ChevronDown /></div>
 		</button>
@@ -125,19 +132,21 @@
 			<InfoIcon />
 		</button>
 	</div>
-	<button class="filter" on:click={toggleRegionSelection} bind:this={filter}>
-		<span class="label">{region_map[regionValue].name}</span>
-		<div class="chevron"><ChevronDown /></div>
-	</button>
-	{#if selectingRegion}
-		<div class="region-list">
-			{#each regions as region}
-				<button class="region-option" on:click={() => handleChangeRegion(region.key)}>
-					{region.name}
-				</button>
-			{/each}
-		</div>
-	{/if}
+	<div class="filter-wrapper">
+		<button class="filter" on:click={toggleRegionSelection} bind:this={filter}>
+			<span class="label">{region_map[regionValue].name}</span>
+			<div class="chevron"><ChevronDown /></div>
+		</button>
+		{#if selectingRegion}
+			<div class="region-list">
+				{#each regions as region}
+					<button class="region-option" on:click={() => handleChangeRegion(region.key)}>
+						{region.name}
+					</button>
+				{/each}
+			</div>
+		{/if}
+	</div>
 </header>
 
 <style scoped>
@@ -217,6 +226,7 @@
 		gap: 16px;
 		cursor: pointer;
 		font-weight: 600;
+		height: 100%;
 	}
 
 	.filter:hover {
@@ -234,8 +244,7 @@
 	.filter-wrapper {
 		position: relative;
 		display: inline-block;
-		/* width: 100%; */
-		height: 100%;
+		height: inherit;
 	}
 
 	.region-list {
