@@ -15,10 +15,3 @@ export const region_map: Record<string, { name: string }> = {
 		name: 'Quận 3'
 	}
 };
-
-export const categories_list: string[] = [
-	"all",
-	"cafe",
-	"billiard",
-	"mall",
-]

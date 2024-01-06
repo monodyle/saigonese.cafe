@@ -1,8 +1,8 @@
 import Fuse from 'fuse.js';
 import { writable } from 'svelte/store';
+import categories_list from '../category.json';
 import raw from '../data.json';
-import { categories_list, region_map } from './config';
-
+import { region_map } from './config';
 export interface CafeShop {
 	coordinates: [number, number];
 	properties: Record<string, string>;
