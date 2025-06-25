@@ -19,6 +19,11 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@tailwindcss/postcss": "^4.1.10",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "@antfu/eslint-config": "^4.16.1",
+    "eslint": "^9.29.0",
+    "@eslint-react/eslint-plugin": "^1.52.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20"
   }
 }
